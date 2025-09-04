@@ -11,6 +11,6 @@ jobs:
     - name: give time
       run: echo "The current time is $(date)"
     - name: give hostname
-      run: echo "hostname is $(hostname --fqdn)"
+      run: echo "hostname is $(hostname), macname is $(uname -a), macos name is $(sw_vers)"
     - name: give username
-      run: echo "the username is $(USER)"
+      run: echo "the username is $(user)"
