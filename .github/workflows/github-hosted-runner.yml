@@ -1,19 +1,30 @@
-name: SwiftLint Check
+name: macOS Workflow (GitHub Hosted Runner)
 
 on:
-  pull_request:
-    branches: [ main ]
   push:
-    branches: [ main ]
+    branches:
+      - main
 
 jobs:
-  job1:
+  build-and-test:
     runs-on: macos-latest
+    
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout code
+        uses: actions/checkout@v3
 
-      - name: Install SwiftLint
-        run: brew install swiftlint
+      - name: Create Swift File
+        run: |
+          echo 'print("Hello from Swift on macOS")' > hello.swift
+
+      - name: Install dependencies
+        run: |
+          brew install swiftlint
 
       - name: Run SwiftLint
         run: swiftlint
+
+      - name: Compile and run Swift program
+        run: |
+          swiftc hello.swift
+          ./hello
