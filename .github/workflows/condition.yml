@@ -8,7 +8,7 @@ on:
 
 jobs:
   job1:
-    if: ${{ github.repository != 'hdxt25/sample-maven-war-project' }}
+    if: ${{ github.repository == 'hdxt25/sample-maven-war-project' }}
     runs-on: macos-15
     steps:
     - name: result check
