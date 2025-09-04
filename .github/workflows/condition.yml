@@ -29,7 +29,6 @@ jobs:
     - name: package 
       run: mvn package
   job2:
-    if: github.repository == "aaa"
     runs-on: macos-15
     steps:
     - name: result check
