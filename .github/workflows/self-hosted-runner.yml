@@ -1,0 +1,25 @@
+# If you don't create a self-hosted runner you will see:
+# Waiting for a runner to pick up this job...
+name: Self-hosted Runner Workflow
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  example-job:
+    runs-on: self-hosted
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v3
+      - name: Run a one-line script
+        run: echo "Hello from a self-hosted runner!"
+      - name: Print runner name
+        run: 'echo "This job is running on runner: ${{ runner.name }}"'
+      - name: Print other runner details
+        run: |
+          echo "Runner OS: ${{ runner.os }}"
+          echo "Runner Architecture: ${{ runner.arch }}"
+          echo "Runner Temporary Directory: ${{ runner.temp }}"
+          echo "Runner Workspace Directory: ${{ runner.workspace }}"
