@@ -7,30 +7,30 @@ on:
         branches: [ main ]
 
 jobs:
-    job1:
-        if: github.repository == "hdxt25/sample-maven-war-project"
-        runs-on: macos-15
-        steps:
-        - name: result check
-          run: echo "Yes!! this is the right repo"
-        - name: checkout code
-          uses: actions/checkout@v4
-        - name: setup java 21
-          uses: actions/setup-java@v4
-          with:
-            distribution: 'temurin'
-            java-version: '21'
-        - name: code compilation
-          run: mvn compile
-        - name: codereview  
-          run: mvn -P metrics pmd:pmd
-        - name: unittest
-          run: mvn test
-        - name: package 
-          run: mvn package
-    job2:
-        if: github.repository == "aaa"
-        runs-on: macos-15
-        steps:
-        - name: result check
-          run: echo "No!! this is not the right repo"
+  job1:
+    if: github.repository == "hdxt25/sample-maven-war-project"
+    runs-on: macos-15
+    steps:
+    - name: result check
+      run: echo "Yes!! this is the right repo"
+    - name: checkout code
+      uses: actions/checkout@v4
+    - name: setup java 21
+      uses: actions/setup-java@v4
+      with:
+        distribution: 'temurin'
+        java-version: '21'
+    - name: code compilation
+      run: mvn compile
+    - name: codereview  
+      run: mvn -P metrics pmd:pmd
+    - name: unittest
+      run: mvn test
+    - name: package 
+      run: mvn package
+  job2:
+    if: github.repository == "aaa"
+    runs-on: macos-15
+    steps:
+    - name: result check
+    run: echo "No!! this is not the right repo"
