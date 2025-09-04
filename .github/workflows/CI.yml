@@ -2,7 +2,7 @@ name: Schedule an event every 2min
 
 on:
   schedule:
-    - cron: 'H/2 * * * *'
+    - cron: "*/2 * * * *"
 
 jobs:
   job1:
