@@ -1,0 +1,20 @@
+name: Schedule a event every 2min
+
+on:
+  schedule:
+    - cron: 'H/2 * * * *'
+
+jobs:
+  job1:
+
+    runs-on: macos-latest
+
+    steps:
+    - name: give time
+      run: echo "The current time is $(date)"
+
+    - name: give hostname
+      run: echo "hostname is $(hostname --fqdn)"
+
+    - name: give username
+      run: echo "the username is $(USER)"
