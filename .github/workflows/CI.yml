@@ -1,0 +1,35 @@
+name: "CI workflow"
+
+on: 
+    [workflow_dispatch]
+
+jobs:
+  job1:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: setup-java
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '21'
+    
+      - name: codecompilation
+        run: mvn compile
+
+      - name: codereview
+        run: mvn -P metrics pmd:pmd
+
+      - name: unittest
+        run: mvn test   
+
+      - name: package
+        run: mvn package
+
+      - name: upload WAR artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: sample-maven-war-project-war
+          path: target/sample-maven-war-project.war
