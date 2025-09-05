@@ -9,6 +9,8 @@ on:
 jobs:
   job1:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
@@ -35,4 +37,15 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: sample-maven-war-project-war
-          path: target/sample-maven-war-project-1.0-SNAPSHOT.war
+          path: target/*.war
+
+      - name: Commit and push WAR file
+        run: |
+          git config user.name "himanshu"
+          git config user.email "hdxt25@gmail.com"
+
+          # ensure target/ is not ignored
+          git add -f target/*.war
+
+          git commit -m "Add WAR build artifact [skip ci]" || echo "No changes to commit"
+          git push origin HEAD:main
