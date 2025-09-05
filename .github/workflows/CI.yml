@@ -1,7 +1,10 @@
 name: "CI workflow"
 
 on: 
-    [workflow_dispatch]
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
 
 jobs:
   job1:
@@ -32,4 +35,4 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: sample-maven-war-project-war
-          path: target/sample-maven-war-project.war
+          path: sample-maven-war-project/target/sample-maven-war-project.war
