@@ -1,0 +1,21 @@
+name: workflow-commands
+
+on:
+  push: [ main]
+  pull_request: [ main ]
+
+jobs:
+  job1:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: find value
+        run: |
+          echo "$GITHUB _ENV"
+          echo "$GITHUB _PATH"
+          echo "$GITHUB _WORKSPACE"
+          echo "$GITHUB _EVENT_PATH"
+          echo "$GITHUB _JOB"
+          echo "$GITHUB _RUN_ID"
