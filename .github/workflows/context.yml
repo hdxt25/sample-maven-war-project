@@ -1,0 +1,30 @@
+name: context
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  job1:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4   
+
+      - name: find value
+        run: |
+          echo "The value of github-actor is $ACTOR"
+          echo "The value of github-action is $ACTION"
+        env:
+          ACTOR: ${{ github.actor }}
+          ACTION: ${{ github.action }}
+
+      - name: set username and password
+        run: |
+          echo "the username is ${{ env.uname }}"
+            echo "the password is ${{ env.pwd }}"
+        env:
+          uname: "hdxt25"
+          pwd: "hdxt25@123"
