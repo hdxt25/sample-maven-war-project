@@ -15,9 +15,9 @@ jobs:
 
       - name: find value
         run: |
-          echo "$GITHUB _ENV"
-          echo "$GITHUB _PATH"
-          echo "$GITHUB _WORKSPACE"
-          echo "$GITHUB _EVENT_PATH"
-          echo "$GITHUB _JOB"
-          echo "$GITHUB _RUN_ID"
+          echo "$GITHUB_ENV"
+          echo "$GITHUB_PATH"
+          echo "$GITHUB_WORKSPACE"
+          echo "$GITHUB_EVENT_PATH"
+          echo "$GITHUB_JOB"
+          echo "$GITHUB_RUN_ID"
