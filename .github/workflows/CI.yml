@@ -35,4 +35,4 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: sample-maven-war-project-war
-          path: sample-maven-war-project/target/sample-maven-war-project.war
+          path: target/arget/sample-maven-war-project-1.0-SNAPSHOT.war
