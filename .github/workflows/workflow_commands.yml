@@ -1,8 +1,10 @@
 name: workflow-commands
 
 on:
-  push: [ main]
+  push: 
+    branches: [ main]
   pull_request: [ main ]
+    branches: [ main ]
 
 jobs:
   job1:
