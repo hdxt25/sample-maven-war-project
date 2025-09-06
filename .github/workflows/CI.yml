@@ -21,14 +21,17 @@ jobs:
           distribution: 'temurin'
           java-version: '21'
     
-      - name: codecompilation + unittest + package
-        run: mvn clean package
+      - name: codecompilation
+        run: mvn compile
 
       - name: codereview
         run: mvn -P metrics pmd:pmd
 
-      - name: Verify WAR exists
-        run: ls -l target/*.war
+      - name: unittest
+        run: mvn test   
+
+      - name: package
+        run: mvn package
 
       - name: upload WAR artifact
         uses: actions/upload-artifact@v4
@@ -59,6 +62,4 @@ jobs:
         with:
           context: .
           push: true
-          tags: hdxt25/maven-war-2:latest
-
-      
+          tags: hdxt25/sample-maven-war-project-new:latest
