@@ -62,6 +62,6 @@ jobs:
         with:
           context: .
           push: true
-          tags: your-docker-username/your-image-name:latest
+          tags: hdxt25/sample-maven-war-project:latest
 
       
