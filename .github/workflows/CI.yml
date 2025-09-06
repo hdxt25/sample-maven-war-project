@@ -59,6 +59,6 @@ jobs:
         with:
           context: .
           push: true
-          tags: hdxt25/sample-maven-war-project:latest
+          tags: hdxt25/maven-war-1:latest
 
       
