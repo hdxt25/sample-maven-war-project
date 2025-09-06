@@ -21,17 +21,14 @@ jobs:
           distribution: 'temurin'
           java-version: '21'
     
-      - name: codecompilation
-        run: mvn compile
+      - name: codecompilation + unittest + package
+        run: mvn clean package
 
       - name: codereview
         run: mvn -P metrics pmd:pmd
 
-      - name: unittest
-        run: mvn test   
-
-      - name: package
-        run: mvn package
+      - name: Verify WAR exists
+        run: ls -l target/*.war
 
       - name: upload WAR artifact
         uses: actions/upload-artifact@v4
