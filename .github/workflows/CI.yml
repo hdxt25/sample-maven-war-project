@@ -47,6 +47,7 @@ jobs:
           # ensure target/ is not ignored
           git add -f target/*.war
 
+          
           git commit -m "Add WAR build artifact [skip ci]" || echo "No changes to commit"
           git push origin HEAD:main
 
