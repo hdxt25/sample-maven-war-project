@@ -5,8 +5,7 @@ FROM tomcat:10.1-jdk21
 RUN rm -rf /usr/local/tomcat/webapps/ROOT
 
 # Copy your prebuilt WAR file from repo into Tomcat
-COPY target/*.war app.war
-COPY app.war /usr/local/tomcat/webapps/ROOT.war
+COPY target/*.war /usr/local/tomcat/webapps/ROOT.war
 
 # Expose Tomcat port
 EXPOSE 8080
